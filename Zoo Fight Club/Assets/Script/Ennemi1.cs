@@ -10,9 +10,11 @@ public class Ennemi1 : MonoBehaviour
     //donne une vitesse
     public float speed = 2f;
     // Start is called before the first frame update
+    private SpriteRenderer sr;
     void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
+        sr = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -24,12 +26,14 @@ public class Ennemi1 : MonoBehaviour
         _rigidbody.velocity = movement;
         //fait avancer l'objet, le *time... fait que l'objet n'avance pas trop vite
         //this.transform.position +=  * Time.deltaTime;
+        sr.flipX = movement.x > 0;
     }
 
     //faire avancer dans l'autre sens lors d'un collision avec un trigger?
     private void OnTriggerEnter2D(Collider2D other)
     {
         speed *= -1;
+
         //this.transform.position += Vector3.left * Time.deltaTime;
     }
 }
