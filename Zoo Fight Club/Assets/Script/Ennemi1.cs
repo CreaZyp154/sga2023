@@ -12,7 +12,7 @@ public class Ennemi1 : MonoBehaviour
     // Start is called before the first frame update
     private SpriteRenderer sr;
     private int Life = 1;
-    public playerHealth pHealth;
+   // public playerHealth pHealth;
     public float damage;
     void Awake()
     {
@@ -54,9 +54,9 @@ public class Ennemi1 : MonoBehaviour
 
         if (other.gameObject.CompareTag("Player"))
         {
-            pHealth.health -= damage;
+          //  pHealth.health -= damage;
         }
-
+        
         //this.transform.position += Vector3.left * Time.deltaTime;
     }
 }
