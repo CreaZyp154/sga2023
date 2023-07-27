@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     public float jump;
 
     public float Move;
+    public float direction_attack;
     public Rigidbody2D rb;
     private float jumpTimeCounter;
     public float jumpTime;
@@ -59,6 +60,11 @@ public class PlayerMovement : MonoBehaviour
             return;
         }
         Move = Input.GetAxis("Horizontal");
+        
+        if (Input.GetAxisRaw("Horizontal") != 0)
+        {
+            direction_attack = Input.GetAxisRaw("Horizontal"); 
+        }
         rb.velocity = new Vector2(speed * Move, rb.velocity.y);
 
 
