@@ -8,7 +8,7 @@ public class GameController : MonoBehaviour
 
     public void Play()
     {
-        SceneManager.LoadScene("Camille");
+        SceneManager.LoadScene("Game");
     }
 
     public void ExitGame()
