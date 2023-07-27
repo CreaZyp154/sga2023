@@ -12,6 +12,7 @@ private float dashingCooldown = 1f;
     public float dashSpeed; 
 [SerializeField] private TrailRenderer tr;
     public Rigidbody2D rb;
+    [SerializeField] GameObject prefab_attack;
 
     // Start is called before the first frame update
     void Start()
@@ -28,9 +29,17 @@ private float dashingCooldown = 1f;
         }
         if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
         {
-            StartCoroutine(Dash());
+            StartCoroutine(Dash()); 
 
         }
+        if (Input.GetKeyDown(KeyCode.J)) {
+            GameObject attack = Instantiate(prefab_attack, transform.position + new Vector3(2.5f * GetComponent<PlayerMovement>().direction_attack, -0.5f, 0), Quaternion.identity);
+            Destroy(attack, 0.2f);
+        }
+    
+
+
+
     }
     private IEnumerator Dash()
     {
