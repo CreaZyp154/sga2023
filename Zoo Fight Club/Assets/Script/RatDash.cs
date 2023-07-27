@@ -13,10 +13,13 @@ public class RatDash : MonoBehaviour
     private int Life = 3;
     public playerHealth pHealth;
     public float damage;
+    private SpriteRenderer sr;
+    Animator anim;
     // Start is called before the first frame update
     void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -26,7 +29,15 @@ public class RatDash : MonoBehaviour
         //permet de faire avancer l'ennemi en utilisant le rigidbody (gravité)
         _rigidbody.velocity = movement;
         CounterTime += Time.deltaTime;
-        
+        //sr.flipX = movement.x > 0;
+        if(movement.x > 0)
+        {
+            transform.localScale = new Vector3(-2, transform.localScale.y, 0);
+        }else if(movement.x < 0)
+        {
+            transform.localScale = new Vector3(2, transform.localScale.y, 0);
+        }
+
 
 
         if (CounterTime >= TimetoDash && State == 0)
@@ -46,6 +57,7 @@ public class RatDash : MonoBehaviour
         if (Life == 0)
         {
             //Détruit l'objet 2 seconde après que life==0
+            anim.SetTrigger("RatDeath");
             Destroy(this.gameObject, 2);
             speed = 0;
         }

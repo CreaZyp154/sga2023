@@ -13,10 +13,12 @@ public class Ennemi1 : MonoBehaviour
     private int Life = 1;
    public playerHealth pHealth;
     public float damage;
+    Animator anim;
     void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -33,6 +35,7 @@ public class Ennemi1 : MonoBehaviour
         if (Life == 0)
         {
             //D�truit l'objet 2 seconde apr�s que life==0
+            anim.SetTrigger("RatDeath");
             Destroy(this.gameObject, 2);
             speed = 0;
         }
@@ -48,6 +51,7 @@ public class Ennemi1 : MonoBehaviour
 
         if (other.gameObject.layer == LayerMask.NameToLayer("Attack"))
         {
+            
             Life--;
         }
 

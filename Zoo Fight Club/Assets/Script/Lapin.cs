@@ -13,10 +13,12 @@ public class Lapin : MonoBehaviour
     private int Life = 2;
     public playerHealth pHealth;
     public float damage;
+    Animator anim;
     // Start is called before the first frame update
     void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -24,6 +26,15 @@ public class Lapin : MonoBehaviour
     {
         Vector2 movement = new Vector2(speed, _rigidbody.velocity.y);
         _rigidbody.velocity = movement;
+
+        if (movement.x > 0)
+        {
+            transform.localScale = new Vector3(-2, transform.localScale.y, 0);
+        }
+        else if (movement.x < 0)
+        {
+            transform.localScale = new Vector3(2, transform.localScale.y, 0);
+        }
 
         if (CanJump == 1)
         {
@@ -41,6 +52,7 @@ public class Lapin : MonoBehaviour
         if (Life == 0)
         {
             //Détruit l'objet 2 seconde après que life==0
+            anim.SetTrigger("RatDeath");
             Destroy(this.gameObject, 2);
             speed = 0;
             CanJump = 0;
