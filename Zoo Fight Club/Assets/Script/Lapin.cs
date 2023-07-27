@@ -10,6 +10,7 @@ public class Lapin : MonoBehaviour
     Rigidbody2D _rigidbody;
     private int CanJump;
     private float speed = 2f;
+    private int Life = 2;
     // Start is called before the first frame update
     void Awake()
     {
@@ -36,6 +37,14 @@ public class Lapin : MonoBehaviour
                 CanJump = 0;
             }
         }
+
+        if (Life == 0)
+        {
+            //Détruit l'objet 2 seconde après que life==0
+            Destroy(this.gameObject, 2);
+            speed = 0;
+            CanJump = 0;
+        }
     }
 
     
@@ -49,6 +58,11 @@ public class Lapin : MonoBehaviour
         if (other.gameObject.layer == LayerMask.NameToLayer("retour"))
         {
             speed *= -1;
+        }
+
+        if (other.gameObject.layer == LayerMask.NameToLayer("Attack"))
+        {
+            Life--;
         }
     }
 }

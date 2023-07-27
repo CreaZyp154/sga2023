@@ -11,6 +11,7 @@ public class Ennemi1 : MonoBehaviour
     public float speed = 2f;
     // Start is called before the first frame update
     private SpriteRenderer sr;
+    private int Life = 1;
     void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
@@ -27,12 +28,27 @@ public class Ennemi1 : MonoBehaviour
         //fait avancer l'objet, le *time... fait que l'objet n'avance pas trop vite
         //this.transform.position +=  * Time.deltaTime;
         sr.flipX = movement.x > 0;
+
+        if (Life == 0)
+        {
+            //Détruit l'objet 2 seconde après que life==0
+            Destroy(this.gameObject, 2);
+            speed = 0;
+        }
     }
 
     //faire avancer dans l'autre sens lors d'un collision avec un trigger?
     private void OnTriggerEnter2D(Collider2D other)
     {
-        speed *= -1;
+        if (other.gameObject.layer == LayerMask.NameToLayer("retour"))
+        {
+            speed *= -1;
+        }
+
+        if (other.gameObject.layer == LayerMask.NameToLayer("Attack"))
+        {
+            Life--;
+        }
 
         //this.transform.position += Vector3.left * Time.deltaTime;
     }

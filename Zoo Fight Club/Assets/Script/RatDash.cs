@@ -10,6 +10,7 @@ public class RatDash : MonoBehaviour
     private float CounterTime;
     public float DashForce = 5f;
     int State = 0;
+    private int Life = 3;
     // Start is called before the first frame update
     void Awake()
     {
@@ -40,11 +41,23 @@ public class RatDash : MonoBehaviour
             State = 0;
         }
 
+        if (Life == 0)
+        {
+            //Détruit l'objet 2 seconde après que life==0
+            Destroy(this.gameObject, 2);
+            speed = 0;
+        }
+
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         speed *= -1;
         DashForce *= -1;
+
+        if (other.gameObject.layer == LayerMask.NameToLayer("Attack"))
+        {
+            Life--;
+        }
     }
 }
