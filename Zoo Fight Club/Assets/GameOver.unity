@@ -226,7 +226,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -61, y: -103}
+  m_AnchoredPosition: {x: 131, y: -103}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1014089928
@@ -305,8 +305,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: e77c421c4e4bc7148895b7b2d55f103a, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -544,7 +544,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1639425870}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d750d8286c147ef43acf27aa889a4a5f, type: 3}
+  m_Script: {fileID: 11500000, guid: fdf67225761d3b44fa56eb6cab9365a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &1639425872
@@ -575,7 +575,7 @@ GameObject:
   - component: {fileID: 1783392892}
   - component: {fileID: 1783392891}
   m_Layer: 5
-  m_Name: ExitGame
+  m_Name: Respawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -597,7 +597,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 124, y: -104}
+  m_AnchoredPosition: {x: -59, y: -104}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1783392891
@@ -646,7 +646,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1639425871}
         m_TargetAssemblyTypeName: GameController, Assembly-CSharp
-        m_MethodName: ExitGame
+        m_MethodName: Play
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -676,7 +676,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: e77c421c4e4bc7148895b7b2d55f103a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7d0e114a01013524e81b8c5ed0056806, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

@@ -8,6 +8,8 @@ public class PigeonDiagleft : MonoBehaviour
     public float speed = 1f;
     Vector3 direction = new Vector3 (-1, 1, 0);
     private int Life = 3;
+    public playerHealth pHealth;
+    public float damage;
     // Start is called before the first frame update
     void Awake()
     {
@@ -35,6 +37,13 @@ public class PigeonDiagleft : MonoBehaviour
             Life--;
         }
     }
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            pHealth.health -= damage;
+        }
+    }
 
-   
+
 }

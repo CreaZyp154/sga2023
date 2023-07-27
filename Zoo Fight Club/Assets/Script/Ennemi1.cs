@@ -9,10 +9,9 @@ public class Ennemi1 : MonoBehaviour
     Rigidbody2D _rigidbody;
     //donne une vitesse
     public float speed = 2f;
-    // Start is called before the first frame update
     private SpriteRenderer sr;
     private int Life = 1;
-   // public playerHealth pHealth;
+   public playerHealth pHealth;
     public float damage;
     void Awake()
     {
@@ -23,9 +22,9 @@ public class Ennemi1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Rat qui se déplace horizontalement
+        //Rat qui se dï¿½place horizontalement
         Vector2 movement = new Vector2(speed, _rigidbody.velocity.y);
-        //permet de faire avancer l'ennemi en utilisant le rigidbody (gravité)
+        //permet de faire avancer l'ennemi en utilisant le rigidbody (gravitï¿½)
         _rigidbody.velocity = movement;
         //fait avancer l'objet, le *time... fait que l'objet n'avance pas trop vite
         //this.transform.position +=  * Time.deltaTime;
@@ -33,7 +32,7 @@ public class Ennemi1 : MonoBehaviour
 
         if (Life == 0)
         {
-            //Détruit l'objet 2 seconde après que life==0
+            //Dï¿½truit l'objet 2 seconde aprï¿½s que life==0
             Destroy(this.gameObject, 2);
             speed = 0;
         }
@@ -52,11 +51,14 @@ public class Ennemi1 : MonoBehaviour
             Life--;
         }
 
-        if (other.gameObject.CompareTag("Player"))
-        {
-          //  pHealth.health -= damage;
-        }
         
         //this.transform.position += Vector3.left * Time.deltaTime;
+    }
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            pHealth.health -= damage;
+        }
     }
 }
