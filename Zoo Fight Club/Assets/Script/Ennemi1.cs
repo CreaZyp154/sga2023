@@ -35,8 +35,10 @@ public class Ennemi1 : MonoBehaviour
         if (Life == 0)
         {
             //D�truit l'objet 2 seconde apr�s que life==0
+            //ne joue pas ratdeg a voir pk
+            anim.SetTrigger("RatDeg");
             anim.SetTrigger("RatDeath");
-            Destroy(this.gameObject, 2);
+            Destroy(this.gameObject, 4);
             speed = 0;
         }
     }
