@@ -8,4 +8,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Camille.unity
+    guid: df65f1a4822fc0540a6e0528a9d39cc8
+  - enabled: 1
+    path: Assets/MainMenu.unity
+    guid: 162ab041cb5372d41bbc33393d3c7578
+  - enabled: 1
+    path: Assets/GameOver.unity
+    guid: 283a3e0332af1a9479c27c791aba8df6
+  - enabled: 1
+    path: Assets/Win.unity
+    guid: 573a912ad1626dc4894258568bed8577
   m_configObjects: {}
