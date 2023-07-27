@@ -11,7 +11,7 @@ public class Ennemi1 : MonoBehaviour
     public float speed = 2f;
     private SpriteRenderer sr;
     private int Life = 1;
-   // public playerHealth pHealth;
+   public playerHealth pHealth;
     public float damage;
     void Awake()
     {
@@ -51,11 +51,14 @@ public class Ennemi1 : MonoBehaviour
             Life--;
         }
 
-        if (other.gameObject.CompareTag("Player"))
-        {
-          //  pHealth.health -= damage;
-        }
         
         //this.transform.position += Vector3.left * Time.deltaTime;
+    }
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            pHealth.health -= damage;
+        }
     }
 }

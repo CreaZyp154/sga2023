@@ -7,6 +7,8 @@ public class Pigeon : MonoBehaviour
     Rigidbody2D _rigidbody;
     public float speed = 2f;
     private int Life = 1;
+    public playerHealth pHealth;
+    public float damage;
     // Start is called before the first frame update
     void Awake()
     {
@@ -33,6 +35,13 @@ public class Pigeon : MonoBehaviour
         if (other.gameObject.layer == LayerMask.NameToLayer("Attack"))
         {
             Life--;
+        }
+    }
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            pHealth.health -= damage;
         }
     }
 }

@@ -7,6 +7,8 @@ public class PigeonVert : MonoBehaviour
     Rigidbody2D _rigidbody;
     public float speed = 2f;
     private int Life = 2;
+    public playerHealth pHealth;
+    public float damage;
     // Start is called before the first frame update
     void Awake()
     {
@@ -35,5 +37,12 @@ public class PigeonVert : MonoBehaviour
             Life--;
         }
 
+    }
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            pHealth.health -= damage;
+        }
     }
 }

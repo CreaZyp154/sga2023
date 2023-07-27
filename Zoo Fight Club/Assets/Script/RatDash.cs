@@ -11,6 +11,8 @@ public class RatDash : MonoBehaviour
     public float DashForce = 5f;
     int State = 0;
     private int Life = 3;
+    public playerHealth pHealth;
+    public float damage;
     // Start is called before the first frame update
     void Awake()
     {
@@ -58,6 +60,13 @@ public class RatDash : MonoBehaviour
         if (other.gameObject.layer == LayerMask.NameToLayer("Attack"))
         {
             Life--;
+        }
+    }
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            pHealth.health -= damage;
         }
     }
 }
