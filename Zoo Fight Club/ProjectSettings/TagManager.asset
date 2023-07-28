@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Floor
   layers:
   - Default
   - TransparentFX
@@ -15,7 +16,7 @@ TagManager:
   - 
   - Ground
   - Attack
-  - 
+  - Win
   - 
   - 
   - 
@@ -40,4 +41,19 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 2065527999
+    locked: 0
+  - name: Background2
+    uniqueID: 866566429
+    locked: 0
+  - name: Level
+    uniqueID: 625719893
+    locked: 0
+  - name: Player
+    uniqueID: 1714239559
+    locked: 0
+  - name: Devant
+    uniqueID: 3973554087
     locked: 0

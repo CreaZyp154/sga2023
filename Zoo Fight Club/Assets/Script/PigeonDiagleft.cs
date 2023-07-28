@@ -10,6 +10,7 @@ public class PigeonDiagleft : MonoBehaviour
     private int Life = 3;
     public playerHealth pHealth;
     public float damage;
+    private SpriteRenderer sr;
     // Start is called before the first frame update
     void Awake()
     {
@@ -26,6 +27,15 @@ public class PigeonDiagleft : MonoBehaviour
             //Détruit l'objet 2 seconde après que life==0
             Destroy(this.gameObject, 2);
             speed = 0;
+        }
+
+        if (direction.x > 0)
+        {
+            transform.localScale = new Vector3(-2, transform.localScale.y, 0);
+        }
+        else if (direction.x < 0)
+        {
+            transform.localScale = new Vector3(2, transform.localScale.y, 0);
         }
     }
     private void OnTriggerEnter2D(Collider2D other)

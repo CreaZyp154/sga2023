@@ -10,13 +10,15 @@ public class Lapin : MonoBehaviour
     Rigidbody2D _rigidbody;
     private int CanJump;
     private float speed = 2f;
-    private int Life = 2;
+    private int Life = 3;
     public playerHealth pHealth;
     public float damage;
+    Animator anim;
     // Start is called before the first frame update
     void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -24,6 +26,15 @@ public class Lapin : MonoBehaviour
     {
         Vector2 movement = new Vector2(speed, _rigidbody.velocity.y);
         _rigidbody.velocity = movement;
+
+        if (movement.x > 0)
+        {
+            transform.localScale = new Vector3(-2, transform.localScale.y, 0);
+        }
+        else if (movement.x < 0)
+        {
+            transform.localScale = new Vector3(2, transform.localScale.y, 0);
+        }
 
         if (CanJump == 1)
         {
@@ -38,12 +49,17 @@ public class Lapin : MonoBehaviour
             }
         }
 
-        if (Life == 0)
+        if (Life <= 0)
         {
             //Détruit l'objet 2 seconde après que life==0
-            Destroy(this.gameObject, 2);
+            anim.SetTrigger("RatDeath");
+            _rigidbody.bodyType = RigidbodyType2D.Static;
+            Destroy(GetComponent<BoxCollider2D>());
+        
             speed = 0;
             CanJump = 0;
+            Destroy(this, 2);
+        
         }
     }
 
@@ -63,6 +79,8 @@ public class Lapin : MonoBehaviour
         if (other.gameObject.layer == LayerMask.NameToLayer("Attack"))
         {
             Life--;
+            if(Life > 0)
+                anim.SetTrigger("Deg");
         }
     }
     private void OnCollisionEnter2D(Collision2D other)
