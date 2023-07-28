@@ -11,6 +11,7 @@ public class PigeonDiag : MonoBehaviour
     private int Life = 3;
     public playerHealth pHealth;
     public float damage;
+    private SpriteRenderer sr;
     // Start is called before the first frame update
     void Awake()
     {
@@ -21,6 +22,15 @@ public class PigeonDiag : MonoBehaviour
     void FixedUpdate()
     {
         _rigidbody.velocity = direction * speed;
+
+        if (direction.x > 0)
+        {
+            transform.localScale = new Vector3(-2, transform.localScale.y, 0);
+        }
+        else if (direction.x < 0)
+        {
+            transform.localScale = new Vector3(2, transform.localScale.y, 0);
+        }
 
         if (Life == 0)
         {
