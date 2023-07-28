@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.UI; 
 
@@ -11,11 +12,13 @@ public class playerHealth : MonoBehaviour
     public Rigidbody2D rb; 
     Animator anim;
     bool isdead = false;
+    public GameController gameController;
+    OpenSceneMode openScene; 
     // Start is called before the first frame update
     void Start()
     {
         maxHealth = health;
-        anim = GetComponent<Animator>();
+        anim = GetComponent<Animator>(); 
     }
 
     // Update is called once per frame
@@ -26,12 +29,18 @@ public class playerHealth : MonoBehaviour
             anim.SetTrigger("die");
             Destroy(GetComponent<PlayerAttack>());
             Destroy(GetComponent<PlayerMovement>());
-            Destroy(this.gameObject, 2f);
+            StartCoroutine(DeadPlayer()); 
+           // Destroy(this.gameObject, 2f);
             isdead = true; 
         }
       
 
         healthbar.fillAmount = Mathf.Clamp(health / maxHealth, 0, 1);
+    }
+    IEnumerator DeadPlayer()
+    {
+        yield return new WaitForSeconds(2f);
+        gameController.DeadPlayer();
     }
     public void Takehit(float damage)
     {
