@@ -36,6 +36,9 @@ public class playerHealth : MonoBehaviour
     public void Takehit(float damage)
     {
         health -= damage;
-        anim.SetTrigger("Damage"); 
+        if (health >= 1) {
+            Debug.Log("damage animation");
+            anim.SetTrigger("damage"); 
+        }
     }
 }
