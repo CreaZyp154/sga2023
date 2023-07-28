@@ -20,6 +20,7 @@ public class RatDash : MonoBehaviour
     {
         _rigidbody = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        pHealth = FindAnyObjectByType<playerHealth>();
     }
 
     // Update is called once per frame
@@ -84,7 +85,8 @@ public class RatDash : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            pHealth.health -= damage;
+            pHealth.Takehit(damage);
+
         }
     }
 }

@@ -15,6 +15,7 @@ public class PigeonDiagleft : MonoBehaviour
     void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
+        pHealth = FindAnyObjectByType<playerHealth>();
     }
 
     // Update is called once per frame
@@ -51,7 +52,8 @@ public class PigeonDiagleft : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            pHealth.health -= damage;
+            pHealth.Takehit(damage);
+
         }
     }
 

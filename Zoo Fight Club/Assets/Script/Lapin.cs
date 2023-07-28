@@ -19,6 +19,7 @@ public class Lapin : MonoBehaviour
     {
         _rigidbody = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        pHealth = FindAnyObjectByType<playerHealth>();
     }
 
     // Update is called once per frame
@@ -87,7 +88,8 @@ public class Lapin : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            pHealth.health -= damage;
+            pHealth.Takehit(damage);
+
         }
     }
 }
