@@ -10,12 +10,14 @@ public class Pigeon : MonoBehaviour
     public playerHealth pHealth;
     public float damage;
     private SpriteRenderer sr;
+    Animator anim;
     // Start is called before the first frame update
     void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
         pHealth = FindAnyObjectByType<playerHealth>();
         sr = GetComponent<SpriteRenderer>();
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -29,6 +31,7 @@ public class Pigeon : MonoBehaviour
         if (Life == 0)
         {
             //Détruit l'objet 2 seconde après que life==0
+            anim.SetTrigger("Death");
             Destroy(this.gameObject, 2);
             speed = 0;
         }
