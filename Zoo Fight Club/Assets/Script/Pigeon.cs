@@ -43,6 +43,7 @@ public class Pigeon : MonoBehaviour
         if (other.gameObject.layer == LayerMask.NameToLayer("Attack"))
         {
             Life--;
+            anim.SetTrigger("Deg");
         }
     }
     private void OnCollisionEnter2D(Collision2D other)

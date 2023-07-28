@@ -39,6 +39,7 @@ public class PigeonVert : MonoBehaviour
         if (other.gameObject.layer == LayerMask.NameToLayer("Attack"))
         {
             Life--;
+            anim.SetTrigger("Deg");
         }
 
     }
