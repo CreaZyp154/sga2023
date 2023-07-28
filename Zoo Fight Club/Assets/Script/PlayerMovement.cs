@@ -19,10 +19,13 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask whatIsGround;
     public float jumpForce;
     public float jumpforce;
+    Animator anim;
+    private SpriteRenderer sr;
     // Start is called before the first frame update
     void Start()
     {
-
+        anim = GetComponent<Animator>();
+        sr = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -31,8 +34,9 @@ public class PlayerMovement : MonoBehaviour
         isGrounded = Physics2D.OverlapCircle(feetPos.position, checkRadius, whatIsGround);
         if (isGrounded == true && Input.GetKeyDown(KeyCode.Space))
         {
-            isJumping = true;
-            rb.velocity = Vector2.up * jumpforce;
+            anim.SetTrigger("Jump");
+          
+     
             jumpTimeCounter = jumpTime;
         }
         if (Input.GetKey(KeyCode.Space) && isJumping == true)
@@ -52,27 +56,41 @@ public class PlayerMovement : MonoBehaviour
             isJumping = false;
             // Fin de long jump
 
-           }
+        }
 
 
         if (GetComponent<PlayerAttack>().isDashing)
         {
             return;
         }
-        Move = Input.GetAxis("Horizontal");
-        
         if (Input.GetAxisRaw("Horizontal") != 0)
         {
-            direction_attack = Input.GetAxisRaw("Horizontal"); 
+            direction_attack = Input.GetAxisRaw("Horizontal");
+
         }
+        Move = Input.GetAxis("Horizontal");
+
+
         rb.velocity = new Vector2(speed * Move, rb.velocity.y);
+        sr.flipX = rb.velocity.x < 0;
+        anim.SetInteger("velocit", (int)rb.velocity.x*10);
 
 
 
-        
 
 
 
+
+    }
+
+    public void Landing()
+    {
+        isJumping = false;
+    }
+    public void Jump()
+    {
+        isJumping = true;
+        rb.velocity = Vector2.up * jumpforce;
     }
 }
     
