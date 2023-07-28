@@ -10,7 +10,7 @@ public class Lapin : MonoBehaviour
     Rigidbody2D _rigidbody;
     private int CanJump;
     private float speed = 2f;
-    private int Life = 2;
+    private int Life = 3;
     public playerHealth pHealth;
     public float damage;
     Animator anim;
@@ -49,13 +49,17 @@ public class Lapin : MonoBehaviour
             }
         }
 
-        if (Life == 0)
+        if (Life <= 0)
         {
             //Détruit l'objet 2 seconde après que life==0
             anim.SetTrigger("RatDeath");
-            Destroy(this.gameObject, 2);
+            _rigidbody.bodyType = RigidbodyType2D.Static;
+            Destroy(GetComponent<BoxCollider2D>());
+        
             speed = 0;
             CanJump = 0;
+            Destroy(this, 2);
+        
         }
     }
 
@@ -75,6 +79,8 @@ public class Lapin : MonoBehaviour
         if (other.gameObject.layer == LayerMask.NameToLayer("Attack"))
         {
             Life--;
+            if(Life > 0)
+                anim.SetTrigger("Deg");
         }
     }
     private void OnCollisionEnter2D(Collision2D other)

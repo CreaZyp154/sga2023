@@ -54,12 +54,17 @@ public class RatDash : MonoBehaviour
             State = 0;
         }
 
-        if (Life == 0)
+        if (Life <= 0)
         {
             //Détruit l'objet 2 seconde après que life==0
             anim.SetTrigger("RatDeath");
-            Destroy(this.gameObject, 2);
+            _rigidbody.bodyType = RigidbodyType2D.Static;
+            Destroy(GetComponent<BoxCollider2D>());
+
             speed = 0;
+            
+            Destroy(this, 2);
+
         }
 
     }

@@ -32,14 +32,17 @@ public class Ennemi1 : MonoBehaviour
         //this.transform.position +=  * Time.deltaTime;
         sr.flipX = movement.x > 0;
 
-        if (Life == 0)
+        if (Life <= 0)
         {
-            //D�truit l'objet 2 seconde apr�s que life==0
-            //ne joue pas ratdeg a voir pk
-            anim.SetTrigger("RatDeg");
+            //Détruit l'objet 2 seconde après que life==0
             anim.SetTrigger("RatDeath");
-            Destroy(this.gameObject, 4);
+            _rigidbody.bodyType = RigidbodyType2D.Static;
+            Destroy(GetComponent<BoxCollider2D>());
+
             speed = 0;
+            
+            Destroy(this, 2);
+
         }
     }
 
@@ -53,7 +56,6 @@ public class Ennemi1 : MonoBehaviour
 
         if (other.gameObject.layer == LayerMask.NameToLayer("Attack"))
         {
-            
             Life--;
         }
 
