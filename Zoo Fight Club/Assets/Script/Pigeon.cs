@@ -9,10 +9,13 @@ public class Pigeon : MonoBehaviour
     private int Life = 1;
     public playerHealth pHealth;
     public float damage;
+    private SpriteRenderer sr;
     // Start is called before the first frame update
     void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
+        pHealth = FindAnyObjectByType<playerHealth>();
+        sr = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -21,6 +24,8 @@ public class Pigeon : MonoBehaviour
         //Ce pigeon vol horizontalement (comme le rat sauf qu'il ne subit pas la gravité)
         Vector2 movement = new Vector2(speed, _rigidbody.velocity.y);
         _rigidbody.velocity = movement;
+        sr.flipX = movement.x > 0;
+
         if (Life == 0)
         {
             //Détruit l'objet 2 seconde après que life==0
@@ -41,7 +46,8 @@ public class Pigeon : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            pHealth.health -= damage;
+            pHealth.Takehit(damage);
+
         }
     }
 }

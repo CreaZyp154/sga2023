@@ -176,7 +176,7 @@ MonoBehaviour:
   TimetoDash: 3
   DashForce: 5
   pHealth: {fileID: 0}
-  damage: 33.4
+  damage: 1
 --- !u!95 &1232084040717981898
 Animator:
   serializedVersion: 5
