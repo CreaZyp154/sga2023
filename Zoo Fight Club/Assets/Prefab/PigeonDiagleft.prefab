@@ -174,7 +174,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 2
   pHealth: {fileID: 0}
-  damage: 33.4
+  damage: 1
 --- !u!95 &8968949856036617400
 Animator:
   serializedVersion: 5

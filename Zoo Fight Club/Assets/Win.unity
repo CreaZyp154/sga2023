@@ -540,7 +540,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
+  m_FirstSelected: {fileID: 1633423253}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
 --- !u!4 &846872312
@@ -695,7 +695,7 @@ MonoBehaviour:
   m_SpriteState:
     m_HighlightedSprite: {fileID: 21300000, guid: 0b3f5e5814528554da3698ea8164f90e, type: 3}
     m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 21300000, guid: e6643c00922bf1d4e9c50c603ccace59, type: 3}
+    m_SelectedSprite: {fileID: 21300000, guid: 0b3f5e5814528554da3698ea8164f90e, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
