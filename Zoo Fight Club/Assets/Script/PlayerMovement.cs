@@ -20,12 +20,15 @@ public class PlayerMovement : MonoBehaviour
     public float jumpForce;
     public float jumpforce;
     Animator anim;
+    AudioSource soundEffect; 
     private SpriteRenderer sr;
+    public Audioclips sounds; 
     // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>();
         sr = GetComponent<SpriteRenderer>();
+        soundEffect = GetComponent<AudioSource>(); 
     }
 
     // Update is called once per frame
@@ -35,6 +38,8 @@ public class PlayerMovement : MonoBehaviour
         if (isGrounded == true && Input.GetKeyDown(KeyCode.Space))
         {
             anim.SetTrigger("Jump");
+            soundEffect.clip = sounds.Jump;
+            soundEffect.Play(); 
           
      
             jumpTimeCounter = jumpTime;
@@ -74,6 +79,8 @@ public class PlayerMovement : MonoBehaviour
         rb.velocity = new Vector2(speed * Move, rb.velocity.y);
         sr.flipX = rb.velocity.x < 0;
         anim.SetInteger("velocit", (int)rb.velocity.x*10);
+        
+
 
 
 

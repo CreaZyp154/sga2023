@@ -13,11 +13,14 @@ private float dashingCooldown = 1f;
 [SerializeField] private TrailRenderer tr;
     public Rigidbody2D rb;
     [SerializeField] GameObject prefab_attack;
-    Animator anim; 
+    Animator anim;
+    AudioSource soundEffect;
+    public Audioclips sounds;
     // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>();
+        soundEffect = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -32,9 +35,13 @@ private float dashingCooldown = 1f;
         {          
             StartCoroutine(Dash()); 
             anim.SetTrigger("Dash");
+            soundEffect.clip = sounds.Dash;
+            soundEffect.Play();
         }
         if (Input.GetKeyDown(KeyCode.J)) {
             anim.SetTrigger("attack");
+            soundEffect.clip = sounds.Dash;
+            soundEffect.Play(); 
             GameObject attack = Instantiate(prefab_attack, transform.position + new Vector3(2.5f * GetComponent<PlayerMovement>().direction_attack, -0.5f, 0), Quaternion.identity);
             Destroy(attack, 0.2f);
         }

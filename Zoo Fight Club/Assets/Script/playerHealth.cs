@@ -13,12 +13,15 @@ public class playerHealth : MonoBehaviour
     Animator anim;
     bool isdead = false;
     public GameController gameController;
-    OpenSceneMode openScene; 
+    OpenSceneMode openScene;
+    AudioSource soundEffect;
+    public Audioclips sounds; 
     // Start is called before the first frame update
     void Start()
     {
         maxHealth = health;
-        anim = GetComponent<Animator>(); 
+        anim = GetComponent<Animator>();
+        soundEffect = GetComponent<AudioSource>(); 
     }
 
     // Update is called once per frame
@@ -29,6 +32,8 @@ public class playerHealth : MonoBehaviour
             anim.SetTrigger("die");
             Destroy(GetComponent<PlayerAttack>());
             Destroy(GetComponent<PlayerMovement>());
+            soundEffect.clip = sounds.Death;
+            soundEffect.Play();
             StartCoroutine(DeadPlayer()); 
            // Destroy(this.gameObject, 2f);
             isdead = true; 
@@ -47,7 +52,9 @@ public class playerHealth : MonoBehaviour
         health -= damage;
         if (health >= 1) {
             Debug.Log("damage animation");
-            anim.SetTrigger("damage"); 
+            anim.SetTrigger("damage");
+            soundEffect.clip = sounds.Death;
+            soundEffect.Play(); 
         }
     }
 
