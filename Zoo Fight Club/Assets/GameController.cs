@@ -21,6 +21,11 @@ public class GameController : MonoBehaviour
         SceneManager.LoadScene("MainMenu");
     }
 
+    public void Credit()
+    {
+        SceneManager.LoadScene("Credits");
+    }
+
     public void DeadPlayer()
     {
         SceneManager.LoadScene("GameOver");
