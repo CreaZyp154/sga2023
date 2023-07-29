@@ -50,4 +50,14 @@ public class playerHealth : MonoBehaviour
             anim.SetTrigger("damage"); 
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        
+
+        if (other.gameObject.layer == LayerMask.NameToLayer("Win"))
+        {
+            gameController.Win();
+        }
+    }
 }

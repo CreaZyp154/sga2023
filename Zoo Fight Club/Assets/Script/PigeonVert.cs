@@ -9,11 +9,13 @@ public class PigeonVert : MonoBehaviour
     private int Life = 2;
     public playerHealth pHealth;
     public float damage;
+    Animator anim;
     // Start is called before the first frame update
     void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
         pHealth = FindAnyObjectByType<playerHealth>();
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -22,9 +24,10 @@ public class PigeonVert : MonoBehaviour
         Vector2 movement = new Vector2(_rigidbody.velocity.x, speed);
         _rigidbody.velocity = movement;
 
-        if (Life == 0)
+        if (Life <= 0)
         {
             //Détruit l'objet 2 seconde après que life==0
+            anim.SetTrigger("Death");
             Destroy(this.gameObject, 2);
             speed = 0;
         }
@@ -36,6 +39,7 @@ public class PigeonVert : MonoBehaviour
         if (other.gameObject.layer == LayerMask.NameToLayer("Attack"))
         {
             Life--;
+            anim.SetTrigger("Deg");
         }
 
     }

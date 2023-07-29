@@ -12,11 +12,13 @@ public class PigeonDiag : MonoBehaviour
     public playerHealth pHealth;
     public float damage;
     private SpriteRenderer sr;
+    Animator anim;
     // Start is called before the first frame update
     void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
         pHealth = FindAnyObjectByType<playerHealth>();
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -36,6 +38,7 @@ public class PigeonDiag : MonoBehaviour
         if (Life == 0)
         {
             //Détruit l'objet 2 seconde après que life==0
+            anim.SetTrigger("Death");
             Destroy(this.gameObject, 2);
             speed = 0;
         }
@@ -47,6 +50,7 @@ public class PigeonDiag : MonoBehaviour
         if (other.gameObject.layer == LayerMask.NameToLayer("Attack"))
         {
             Life--;
+            anim.SetTrigger("Deg");
         }
     }
     private void OnCollisionEnter2D(Collision2D other)
