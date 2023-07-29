@@ -28,7 +28,7 @@ public class Pigeon : MonoBehaviour
         _rigidbody.velocity = movement;
         sr.flipX = movement.x > 0;
 
-        if (Life == 0)
+        if (Life <= 0)
         {
             //Détruit l'objet 2 seconde après que life==0
             anim.SetTrigger("Death");
