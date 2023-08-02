@@ -1,8 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.SceneManagement;
 using UnityEngine;
-using UnityEngine.UI; 
+using UnityEngine.UI;
 
 public class playerHealth : MonoBehaviour
 {
@@ -13,7 +12,7 @@ public class playerHealth : MonoBehaviour
     Animator anim;
     bool isdead = false;
     public GameController gameController;
-    OpenSceneMode openScene;
+   // OpenSceneMode openScene;
     AudioSource soundEffect;
     public Audioclips sounds; 
     // Start is called before the first frame update
