@@ -22,7 +22,8 @@ public class PlayerMovement : MonoBehaviour
     Animator anim;
     AudioSource soundEffect; 
     private SpriteRenderer sr;
-    public Audioclips sounds; 
+    public Audioclips sounds;
+    public float direction_Dash; 
     // Start is called before the first frame update
     void Start()
     {
@@ -35,7 +36,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         isGrounded = Physics2D.OverlapCircle(feetPos.position, checkRadius, whatIsGround);
-        if (isGrounded == true && Input.GetKeyDown(KeyCode.Space))
+        if (isGrounded == true && Input.GetKeyDown(KeyCode.W))
         {
             anim.SetTrigger("Jump");
             soundEffect.clip = sounds.Jump;
@@ -44,7 +45,7 @@ public class PlayerMovement : MonoBehaviour
      
             jumpTimeCounter = jumpTime;
         }
-        if (Input.GetKey(KeyCode.Space) && isJumping == true)
+        if (Input.GetKey(KeyCode.W) && isJumping == true)
         {
             if (jumpTimeCounter > 0)
             {
@@ -56,7 +57,7 @@ public class PlayerMovement : MonoBehaviour
                 isJumping = false;
             }
         }
-        if (Input.GetKeyUp(KeyCode.Space))
+        if (Input.GetKeyUp(KeyCode.W))
         {
             isJumping = false;
             // Fin de long jump
@@ -71,6 +72,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetAxisRaw("Horizontal") != 0)
         {
             direction_attack = Input.GetAxisRaw("Horizontal");
+            direction_Dash = Input.GetAxisRaw("Horizontal"); 
 
         }
         Move = Input.GetAxis("Horizontal");

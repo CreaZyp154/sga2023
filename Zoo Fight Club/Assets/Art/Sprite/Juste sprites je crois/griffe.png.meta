@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 740b0a2f0f01b604fa5c126726c08c95
+guid: 770fae4d29a304c4bbc52e415b06b05c
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 25
+  spritePixelsToUnits: 35
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -124,8 +124,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9ac805c750203814cb1336b97db09c9f
-      internalID: 1035933611
+      spriteID: 38a72c0181dd0f64498b0b0a8247f7e1
+      internalID: -1457040045
       vertices: []
       indices: 
       edges: []
@@ -145,8 +145,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 32e3c96d34f165d45ab6bdaef85b3962
-      internalID: -1051124910
+      spriteID: bac71e0e02a34b24e89e843c48305e1f
+      internalID: 1650685805
       vertices: []
       indices: 
       edges: []
@@ -166,8 +166,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 36a689e56850a96449630ea0282e2043
-      internalID: 399352135
+      spriteID: 9c9bffd9675c8b04fab28af2f5e8f93f
+      internalID: -1796513673
       vertices: []
       indices: 
       edges: []
@@ -187,8 +187,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a55291259a682d74db36fd707f8cec0f
-      internalID: -607995347
+      spriteID: 58d7b848ae3979a4b8b92c2058710e37
+      internalID: -1456624687
       vertices: []
       indices: 
       edges: []
@@ -208,8 +208,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 78c39a1dcd8359b4683ebe0931268ca3
-      internalID: 1380241834
+      spriteID: 27a222dcf31518848bd9a5430b3c4668
+      internalID: -153950331
       vertices: []
       indices: 
       edges: []
@@ -225,11 +225,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      griffe_0: 1035933611
-      griffe_1: -1051124910
-      griffe_2: 399352135
-      griffe_3: -607995347
-      griffe_4: 1380241834
+      griffe_0: -1457040045
+      griffe_1: 1650685805
+      griffe_2: -1796513673
+      griffe_3: -1456624687
+      griffe_4: -153950331
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

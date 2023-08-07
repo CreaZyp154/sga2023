@@ -65,5 +65,9 @@ public class playerHealth : MonoBehaviour
         {
             gameController.Win();
         }
+        if (other.gameObject.layer == LayerMask.NameToLayer("GameOver"))
+        {
+            gameController.DeadPlayer(); 
+        }
     }
 }
